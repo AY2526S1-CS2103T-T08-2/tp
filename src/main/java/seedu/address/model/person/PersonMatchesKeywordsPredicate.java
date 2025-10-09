@@ -2,9 +2,9 @@ package seedu.address.model.person;
 
 import java.util.List;
 import java.util.function.Predicate;
+
 import seedu.address.commons.util.StringUtil;
 import seedu.address.commons.util.ToStringBuilder;
-import seedu.address.model.tag.Tag;
 
 /**
  * Tests that a {@code Person}'s name or tags match the given keywords.
@@ -13,6 +13,12 @@ public class PersonMatchesKeywordsPredicate implements Predicate<Person> {
     private final List<String> nameKeywords;
     private final List<String> tagKeywords;
 
+    /**
+     * Constructs a predicate that matches a {@code Person}
+     *
+     * @param nameKeywords keywords to check against the person's name
+     * @param tagKeywords keywords to check against the person's tags
+     */
     public PersonMatchesKeywordsPredicate(List<String> nameKeywords, List<String> tagKeywords) {
         this.nameKeywords = nameKeywords;
         this.tagKeywords = tagKeywords;

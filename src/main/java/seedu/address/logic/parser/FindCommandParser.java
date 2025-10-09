@@ -7,7 +7,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Stream;
 
 import seedu.address.logic.commands.FindCommand;
@@ -31,12 +30,22 @@ public class FindCommandParser implements Parser<FindCommand> {
 
         String preamble = map.getPreamble();
 
-        if (!arePrefixesPresent(map, PREFIX_NAME) && !arePrefixesPresent(map, PREFIX_TAG)) {
-            throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
+        boolean hasName = arePrefixesPresent(map, PREFIX_NAME);
+        boolean hasTag = arePrefixesPresent(map, PREFIX_TAG);
+
+        // Non-prefixed mode: no prefixes, use preamble as name keywords
+        if (!hasName && !hasTag) {
+            String trimmed = preamble.trim();
+            if (trimmed.isEmpty()) {
+                throw new ParseException(
+                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
+            }
+            List<String> keywords = Arrays.asList(trimmed.split("\\s+"));
+            return new FindCommand(new NameContainsKeywordsPredicate(keywords));
         }
 
-        if (!arePrefixesPresent(map, PREFIX_NAME, PREFIX_TAG) || !preamble.isEmpty()) {
+        // Prefixed mode: allow either or both prefixes, but preamble must be empty
+        if (!preamble.isEmpty()) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
         }

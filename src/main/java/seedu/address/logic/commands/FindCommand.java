@@ -1,7 +1,9 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STATUS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
@@ -25,18 +27,25 @@ public class FindCommand extends Command {
 
     public static final String COMMAND_WORD = "find";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all persons whose name or tag matches any of "
-            + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
-            + "Parameters: n:[name] t:[tag] ..\n"
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all persons whose name, tag, phone or email "
+            + "matches any of the specified keywords (case-insensitive) and displays them as a list with index "
+            + "numbers.\n"
+            + "Parameters: n:[name] t:[tag] p:[phone] e:[email] s:[status] ..\n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_NAME + "alice\n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_TAG + "free\n"
+            + "Example: " + COMMAND_WORD + " " + PREFIX_PHONE + "91234567\n"
+            + "Example: " + COMMAND_WORD + " " + PREFIX_EMAIL + "alice@example.com\n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_STATUS + "uncontacted\n"
             + "Parameters: "
             + "[" + PREFIX_NAME + "NAME] "
             + "[" + PREFIX_TAG + "TAG]...\n"
+            + "[" + PREFIX_PHONE + "PHONE] "
+            + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_STATUS + "STATUS]...\n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_NAME + "alice\n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_TAG + "free\n"
+            + "Example: " + COMMAND_WORD + " " + PREFIX_PHONE + "91234567\n"
+            + "Example: " + COMMAND_WORD + " " + PREFIX_EMAIL + "alice@example.com\n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_STATUS + "uncontacted";
 
     private final Predicate<Person> predicate;

@@ -43,35 +43,71 @@ public class FindCommandParserTest {
     @Test
     public void parse_validNamePrefix_returnsFindCommand() {
         FindCommand expectedFindCommand = new FindCommand(
-                new PersonMatchesKeywordsPredicate(Arrays.asList("Alice", "Bob"), List.of(), null));
+                new PersonMatchesKeywordsPredicate(Arrays.asList("Alice", "Bob"), List.of(), null, 
+                        List.of(), List.of()));
         assertParseSuccess(parser, " n:Alice Bob", expectedFindCommand);
     }
 
     @Test
     public void parse_validTagPrefix_returnsFindCommand() {
         FindCommand expectedFindCommand = new FindCommand(
-                new PersonMatchesKeywordsPredicate(List.of(), Arrays.asList("big-spender", "colleague"), null));
+                new PersonMatchesKeywordsPredicate(List.of(), Arrays.asList("big-spender", "colleague"), null, 
+                        List.of(), List.of()));
         assertParseSuccess(parser, " t:big-spender colleague", expectedFindCommand);
     }
 
     @Test
     public void parse_validBothPrefixes_returnsFindCommand() {
         FindCommand expectedFindCommand = new FindCommand(
-                new PersonMatchesKeywordsPredicate(Arrays.asList("Alice"), Arrays.asList("colleague"), null));
+                new PersonMatchesKeywordsPredicate(Arrays.asList("Alice"), Arrays.asList("colleague"), null, 
+                        List.of(), List.of()));
         assertParseSuccess(parser, " n:Alice t:colleague", expectedFindCommand);
     }
 
     @Test
     public void parse_validStatusPrefix_returnsFindCommand() {
         FindCommand expectedFindCommand = new FindCommand(
-                new PersonMatchesKeywordsPredicate(List.of(), List.of(), "uncontacted"));
+                new PersonMatchesKeywordsPredicate(List.of(), List.of(), "uncontacted", List.of(), List.of()));
         assertParseSuccess(parser, " s:uncontacted", expectedFindCommand);
     }
 
     @Test
     public void parse_validAllPrefixes_returnsFindCommand() {
         FindCommand expectedFindCommand = new FindCommand(
-                new PersonMatchesKeywordsPredicate(Arrays.asList("Alice"), Arrays.asList("colleague"), "contacted"));
+                new PersonMatchesKeywordsPredicate(Arrays.asList("Alice"), Arrays.asList("colleague"), "contacted", 
+                        List.of(), List.of()));
         assertParseSuccess(parser, " n:Alice t:colleague s:contacted", expectedFindCommand);
     }
+
+    @Test
+    public void parse_validPhonePrefix_returnsFindCommand() {
+        FindCommand expectedFindCommand = new FindCommand(
+                new PersonMatchesKeywordsPredicate(List.of(), List.of(), null, Arrays.asList("91234567"), List.of()));
+        assertParseSuccess(parser, " p:91234567", expectedFindCommand);
+    }
+
+    @Test
+    public void parse_validEmailPrefix_returnsFindCommand() {
+        FindCommand expectedFindCommand = new FindCommand(
+                new PersonMatchesKeywordsPredicate(List.of(), List.of(), null, List.of(), 
+                        Arrays.asList("alice@example.com")));
+        assertParseSuccess(parser, " e:alice@example.com", expectedFindCommand);
+    }
+
+    @Test
+    public void parse_validPhoneAndEmailPrefix_returnsFindCommand() {
+        FindCommand expectedFindCommand = new FindCommand(
+                new PersonMatchesKeywordsPredicate(List.of(), List.of(), null, Arrays.asList("91234567"), 
+                        Arrays.asList("alice@example.com")));
+        assertParseSuccess(parser, " p:91234567 e:alice@example.com", expectedFindCommand);
+    }
+
+    @Test
+    public void parse_validNameAndPhonePrefix_returnsFindCommand() {
+        FindCommand expectedFindCommand = new FindCommand(
+                new PersonMatchesKeywordsPredicate(Arrays.asList("Alice"), List.of(), null, 
+                        Arrays.asList("91234567"), List.of()));
+        assertParseSuccess(parser, " n:Alice p:91234567", expectedFindCommand);
+    }
+
 }

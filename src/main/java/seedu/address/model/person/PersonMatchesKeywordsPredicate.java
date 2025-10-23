@@ -25,7 +25,7 @@ public class PersonMatchesKeywordsPredicate implements Predicate<Person> {
      * @param phoneKeywords keywords to check against the person's phone
      * @param emailKeywords keywords to check against the person's email
      */
-    public PersonMatchesKeywordsPredicate(List<String> nameKeywords, List<String> tagKeywords, 
+    public PersonMatchesKeywordsPredicate(List<String> nameKeywords, List<String> tagKeywords,
             String statusKeyword, List<String> phoneKeywords, List<String> emailKeywords) {
         this.nameKeywords = nameKeywords;
         this.tagKeywords = tagKeywords;

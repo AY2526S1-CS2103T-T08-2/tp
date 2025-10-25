@@ -21,6 +21,7 @@ import seedu.address.model.StatusViewState;
 import seedu.address.model.TagsViewState;
 import seedu.address.model.TemplateViewState;
 import seedu.address.model.person.Person;
+import seedu.address.storage.JsonAddressBookUtil;
 import seedu.address.storage.Storage;
 
 /**
@@ -39,7 +40,8 @@ public class LogicManager implements Logic {
     private final AddressBookParser addressBookParser;
 
     /**
-     * Constructs a {@code LogicManager} with the given {@code Model} and {@code Storage}.
+     * Constructs a {@code LogicManager} with the given {@code Model} and
+     * {@code Storage}.
      */
     public LogicManager(Model model, Storage storage) {
         this.model = model;
@@ -83,15 +85,41 @@ public class LogicManager implements Logic {
 
     @Override
     public void importJsonString(String jsonString) throws IOException {
+        ReadOnlyAddressBook addressBook = readAddressBookFromJsonString(jsonString);
+        updateModelAddressBook(addressBook);
+        saveAddressBook(addressBook);
+        logger.info("Successfully imported address book from JSON string");
+    }
+
+    /**
+     * Converts a JSON string into a ReadOnlyAddressBook.
+     *
+     * @param jsonString JSON string representing the address book
+     */
+    private ReadOnlyAddressBook readAddressBookFromJsonString(String jsonString) throws IOException {
         try {
-            ReadOnlyAddressBook addressBook = storage.readAddressBookFromJsonString(jsonString);
-            model.setAddressBook(addressBook);
-            storage.saveAddressBook(addressBook);
-            logger.info("Successfully imported address book from JSON string");
+            return JsonAddressBookUtil.readAddressBookFromJsonString(jsonString);
         } catch (DataLoadingException e) {
-            logger.warning("Failed to import JSON string: " + e.getMessage());
-            throw new IOException("Failed to import address book data: ", e);
+            throw new IOException("Failed to read address book data: ", e);
         }
+    }
+
+    /**
+     * Updates the model's address book.
+     *
+     * @param addressBook The new address book to set in the model.
+     */
+    private void updateModelAddressBook(ReadOnlyAddressBook addressBook) {
+        model.setAddressBook(addressBook);
+    }
+
+    /**
+     * Saves the given address book to storage.
+     *
+     * @param addressBook The address book to save.
+     */
+    private void saveAddressBook(ReadOnlyAddressBook addressBook) throws IOException {
+        storage.saveAddressBook(addressBook);
     }
 
     @Override

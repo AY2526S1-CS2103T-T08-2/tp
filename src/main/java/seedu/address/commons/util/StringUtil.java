@@ -65,4 +65,14 @@ public class StringUtil {
             return false;
         }
     }
+
+    /**
+     * Returns true if the string is null or empty.
+     *
+     * @param s the string to check
+     * @return true if the string is null or empty, false otherwise
+     */
+    public static boolean isNullOrEmpty(String s) {
+        return s == null || s.isEmpty();
+    }
 }

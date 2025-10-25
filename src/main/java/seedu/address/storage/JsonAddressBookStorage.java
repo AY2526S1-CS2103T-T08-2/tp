@@ -60,23 +60,6 @@ public class JsonAddressBookStorage implements AddressBookStorage {
     }
 
     @Override
-    public ReadOnlyAddressBook readAddressBookFromJsonString(String jsonString) throws DataLoadingException {
-        requireNonNull(jsonString);
-
-        try {
-            JsonSerializableAddressBook jsonAddressBook = JsonUtil.fromJsonString(
-                    jsonString, JsonSerializableAddressBook.class);
-            return jsonAddressBook.toModelType();
-        } catch (IOException e) {
-            logger.info("Failed to parse JSON string: " + e.getMessage());
-            throw new DataLoadingException(e);
-        } catch (IllegalValueException ive) {
-            logger.info("Illegal values found in JSON string: " + ive.getMessage());
-            throw new DataLoadingException(ive);
-        }
-    }
-
-    @Override
     public void saveAddressBook(ReadOnlyAddressBook addressBook) throws IOException {
         saveAddressBook(addressBook, filePath);
     }
@@ -94,20 +77,4 @@ public class JsonAddressBookStorage implements AddressBookStorage {
         JsonUtil.saveJsonFile(new JsonSerializableAddressBook(addressBook), filePath);
     }
 
-
-    /**
-     * Parses a JSON string into a ReadOnlyAddressBook.
-     * @throws DataLoadingException if parsing fails or values are illegal
-     */
-    public static ReadOnlyAddressBook parse(String jsonString) throws DataLoadingException {
-        try {
-            if (jsonString == null || jsonString.isEmpty()) {
-                throw new DataLoadingException(new Exception("JSON string is null or empty"));
-            }
-            JsonSerializableAddressBook json = JsonUtil.fromJsonString(jsonString, JsonSerializableAddressBook.class);
-            return json.toModelType();
-        } catch (IOException | IllegalValueException e) {
-            throw new DataLoadingException(e);
-        }
-    }
 }

@@ -8,7 +8,7 @@ import seedu.address.logic.clipboard.SystemClipboardProvider;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
-import seedu.address.storage.JsonAddressBookStorage;
+import seedu.address.storage.JsonAddressBookUtil;
 
 /**
  * Imports address book data from the user's clipboard.
@@ -48,7 +48,7 @@ public class ImportCommand extends Command {
         }
 
         try {
-            ReadOnlyAddressBook addressBook = JsonAddressBookStorage.parse(text);
+            ReadOnlyAddressBook addressBook = JsonAddressBookUtil.readAddressBookFromJsonString(text);
             model.setAddressBook(addressBook);
             return new CommandResult(MESSAGE_SUCCESS);
         } catch (DataLoadingException e) {
@@ -58,5 +58,3 @@ public class ImportCommand extends Command {
         }
     }
 }
-
-

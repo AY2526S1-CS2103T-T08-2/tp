@@ -15,7 +15,7 @@ apps that need you to use a mouse.
 As a salesperson, you need to:
   * Track hundreds of contacts
   * Quickly search and filter their contact information
-  * Send multiple follow-up email quickly
+  * Send multiple follow-up emails quickly
 
 Whether you are on the go with your slim notebook or at home with your mechanical keyboard, OnlySales is
 your friend to help you close all those SALES, with ONLY your keyboard!
@@ -42,9 +42,9 @@ your friend to help you close all those SALES, with ONLY your keyboard!
 OnlySales needs Java to run. **Java** is a free program that runs applications on your computer—think of it as the engine that powers OnlySales. You need any version of Java version 17 installed (version 17.x.x).
 
 **How to check if you have the right version of Java:**
-- On Windows: Press the Windows key, type "cmd" and press Enter. In the window that opens, type `java -version` and press Enter.
+- On Windows: Press the Windows key, type either "cmd" or "Command Prompt" and press Enter. In the window that opens, type `java -version` and press Enter.
 - On Mac: Open the Terminal app (found in Applications > Utilities) and type `java -version`.
-- On Linux: Press Ctrl+Alt+T or search for "Terminal" in your applications menu and open it. Type `java -version`. 
+- On Linux: Open your terminal and type `java -version`. 
 
 **If you need to install Java**, follow these guides:
 - [**Windows Java Installation**](https://se-education.org/guides/tutorials/javaInstallationWindows.html)
@@ -66,7 +66,7 @@ Go to [this page](https://github.com/AY2526S1-CS2103T-T08-2/tp/releases/) and do
 ### Step 4: Launch OnlySales
 
 1. **Open a command terminal** (also called Command Prompt on Windows or Terminal on Mac):
-   - **Windows**: Press the Windows key, type "cmd" or "Command Prompt", and press Enter
+   - **Windows**: Press the Windows key, type either "cmd" or "Command Prompt", and press Enter
    - **Mac**: Open the Terminal app from Applications > Utilities
    - **Linux**: Press Ctrl+Alt+T or search for "Terminal" in your applications menu
 
@@ -111,7 +111,7 @@ You'll see a text box near the top of the OnlySales app — this is where you ty
 
 **:information_source: Notes about the command format:**<br>
 
-- Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
+- Words in `UPPER_CASE` are the parameters to be given by the user.<br>
   e.g. in `add n:NAME`, `NAME` is a parameter which can be used as `add n:John Doe`.
 
 - Items in square brackets are optional.<br>
@@ -146,7 +146,8 @@ Adds a person to the address book.
 
 **Parameters:**
 
-- `n:NAME` - The full name of the contact (required, contains letters, numbers, spaces, and symbols such as hyphens, apostrophes, commas, slashes and periods)
+- `n:NAME` - The full name of the contact (required, contains letters, numbers, spaces, and symbols such as hyphens, apostrophes, commas, slashes, periods, and some other special
+charaters)
 - `p:PHONE_NUMBER` - The phone number (required)
 - `e:EMAIL` - The email address (required)
 - `a:ADDRESS` - The physical address (optional, max 200 characters)
@@ -565,12 +566,15 @@ This glossary defines key terms used throughout this user guide to help you unde
 **JSON (JavaScript Object Notation)**: A text-based data format used by OnlySales to store contact information. It's human-readable and can be edited manually if needed.
 
 **Prefix**: A short code followed by a colon (like `n:`, `p:`, `e:`) used in commands to specify what type of information you're providing. For example, `n:` means name, `p:` means phone number.
+This list is not exhaustive, just some examples of prefixes.
 
 **Status**: A label that indicates the current state of a contact in your sales pipeline. OnlySales supports six statuses: Contacted, Uncontacted, Busy, Rejected, Accepted, and Unreachable.
 
 **Tag**: A keyword or label you can assign to contacts for easier categorization and searching. A contact can have multiple tags.
 
 **Template**: A pre-written email message associated with a specific contact status. You can customize templates and copy them to use in your email communications.
+
+**OR search**: Any condition where at least one of the given conditions are true.
 
 ---
 

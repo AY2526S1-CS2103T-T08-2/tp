@@ -3,17 +3,19 @@ layout: page
 title: User Guide
 ---
 
-## Why OnlySales?
-
-As a salesperson, you need to:
-  * Track hundreds of contacts
-  * Quickly search and filter their contact information
-  * Send multiple follow-up email quickly
+Hello to all salespeople! Welcome to our user guide on Only Sales! Whether you are technical or not doesn't matter! This guide is for you! (If you're unsure of anything, you can refer to the [glossary](#glossary) at the end of this guide.)
 
 OnlySales is a **desktop app for managing contacts, optimised for Salespeople**, especially tech salespeople.
 What makes OnlySales unique is that it is a Command Line Interface-based (CLI) app. Essentially, what it means is
 that if you can type fast, OnlySales can get your contact management tasks done faster than traditional
 apps that need you to use a mouse.
+
+## Why OnlySales?
+
+As a salesperson, you need to:
+  * Track hundreds of contacts
+  * Quickly search and filter their contact information
+  * Send multiple follow-up emails quickly
 
 Whether you are on the go with your slim notebook or at home with your mechanical keyboard, OnlySales is
 your friend to help you close all those SALES, with ONLY your keyboard!
@@ -35,37 +37,71 @@ your friend to help you close all those SALES, with ONLY your keyboard!
 
 ## Quick start
 
-1. Ensure you have any version of Java `17` installed in your Computer. Installation guide for:<br>
-    * [**Windows Java Installation**](https://se-education.org/guides/tutorials/javaInstallationWindows.html)
-    * [**Mac Java Installation**](https://se-education.org/guides/tutorials/javaInstallationMac.html)
-    * [**Linux Java Installation**](https://se-education.org/guides/tutorials/javaInstallationLinux.html)
-1. Download the latest `.jar` file from [here](https://github.com/AY2526S1-CS2103T-T08-2/tp/releases/).
+### Step 1: Install Java (if you don't have it already)
 
-1. Copy the file to the folder you want to use as the _home folder_ for your OnlySales.
+OnlySales needs Java to run. **Java** is a free program that runs applications on your computer—think of it as the engine that powers OnlySales. You need any version of Java version 17 installed (version 17.x.x).
 
-1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar OnlySales.jar` command to run the application.<br>
-   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
-   ![Ui](images/Ui.png)
-   <p class="figcaption">Sample screenshot of the app</p>
+**How to check if you have the right version of Java:**
+- On Windows: Press the Windows key, type either "cmd" or "Command Prompt" and press Enter. In the window that opens, type `java -version` and press Enter.
+- On Mac: Open the Terminal app (found in Applications > Utilities) and type `java -version`.
+- On Linux: Open your terminal and type `java -version`. 
 
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
-   Some example commands you can try:
+**If you need to install Java**, follow these guides:
+- [**Windows Java Installation**](https://se-education.org/guides/tutorials/javaInstallationWindows.html)
+- [**Mac Java Installation**](https://se-education.org/guides/tutorials/javaInstallationMac.html)
+- [**Linux Java Installation**](https://se-education.org/guides/tutorials/javaInstallationLinux.html)
 
-   - `list` : Lists all contacts.
+### Step 2: Download OnlySales
 
-   - `add n:John Doe p:98765432 e:johnd@example.com a:John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
+Go to [this page](https://github.com/AY2526S1-CS2103T-T08-2/tp/releases/) and download the latest file that ends in `.jar`.
 
-   - `delete 3` : Deletes the 3rd contact shown in the current list.
+### Step 3: Choose where to put OnlySales
 
-   * `delete 1 2 3` : Deletes the 1st, 2nd, and 3rd contacts shown in the current list.
+1. Create a new folder on your computer (or choose an existing one) where you want to keep OnlySales. This will be where OnlySales will store all your contacts and settings.
+
+2. Move or copy the `.jar` file you downloaded into this folder.
+
+  <div markdown="span" class="alert alert-primary">:bulb: **Tip:** You might want to create or use a blank folder to avoid clutter. It can be called "OnlySales" on your Desktop or Documents folder for easy access. </div>
+
+### Step 4: Launch OnlySales
+
+1. **Open a command terminal** (also called Command Prompt on Windows or Terminal on Mac):
+   - **Windows**: Press the Windows key, type either "cmd" or "Command Prompt", and press Enter
+   - **Mac**: Open the Terminal app from Applications > Utilities
+   - **Linux**: Press Ctrl+Alt+T or search for "Terminal" in your applications menu
+
+2. **Navigate to your folder**: In the terminal window, type `cd` followed by a space, then drag and drop your OnlySales folder into the terminal window (this automatically types the folder path), and press Enter.
+
+3. **Start OnlySales**: Type `java -jar OnlySales.jar` and press Enter to open the file.
+
+4. The app similar to the image below should appear in a few seconds. You'll see some sample contacts to help you get started.
    
-   * `template s:Contacted` : Opens the email template editor for contacts with "Contacted" status.
+![Ui](images/Ui.png)
+<p class="figcaption">Sample screenshot of the app</p>
 
-   * `clear` : Deletes all contacts.
+### Step 5: Try your first commands
 
-   - `exit` : Exits the app.
+You'll see a text box near the top of the OnlySales app — this is where you type commands.
 
-1. Refer to the [Features](#features) below for details of each command.
+**Here are some simple commands to get you started:**
+
+- Type `help` and press Enter to open the help window.
+
+- Type `list` and press Enter to see all your contacts.
+
+- Type `add n:John Doe p:98765432 e:johnd@example.com a:John street, block 123, #01-01` and press Enter to add a new contact.
+  
+  **What do those letters mean?** The `n:`, `p:`, `e:`, and `a:` are shortcuts that stand for Name, Phone, Email, and Address. For more details, refer to the Features section below.
+
+- Type `delete 3` and press Enter to remove the 3rd contact from your list (be careful — this cannot be undone!).
+
+- Type `template s:Contacted` and press Enter to open the email template editor for contacts you've already contacted.
+
+- Type `clear` and press Enter to delete all contacts (no undo button, use with caution!).
+
+- Type `exit` and press Enter to close OnlySales.
+
+**That's it!** You're ready to start managing your contacts. For more detailed information about each command and all the features OnlySales offers, check out the [Features](#features) section below.
 
 ---
 
@@ -75,7 +111,7 @@ your friend to help you close all those SALES, with ONLY your keyboard!
 
 **:information_source: Notes about the command format:**<br>
 
-- Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
+- Words in `UPPER_CASE` are the parameters to be given by the user.<br>
   e.g. in `add n:NAME`, `NAME` is a parameter which can be used as `add n:John Doe`.
 
 - Items in square brackets are optional.<br>
@@ -110,7 +146,8 @@ Adds a person to the address book.
 
 **Parameters:**
 
-- `n:NAME` - The full name of the contact (required, contains letters, numbers, spaces, and symbols such as hyphens, apostrophes, commas, slashes and periods)
+- `n:NAME` - The full name of the contact (required, contains letters, numbers, spaces, and symbols such as hyphens, apostrophes, commas, slashes, periods, and some other special
+charaters)
 - `p:PHONE_NUMBER` - The phone number (required)
 - `e:EMAIL` - The email address (required)
 - `a:ADDRESS` - The physical address (optional, max 200 characters)
@@ -140,7 +177,7 @@ Sets a person's status in the address book.
 
 **Format:** `status INDEX [STATUS]`
 
-* Changes the status of the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​ This field is mandatory.
+* Changes the status of the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a valid number according to what is displayed in the list below** (e.g., 1, 2, 3, …​). This field is mandatory.
 * Changes the status of the person with the specified `STATUS`. The status of a person can only be "Contacted", "Uncontacted", "Busy", "Rejected", "Accepted" and "Unreachable". If no status is specified, it defaults to "Uncontacted".
 * The status input is case-insensitive.
 
@@ -156,7 +193,7 @@ Edits an existing person in the address book.
 
 **Format:** `edit INDEX [n:NAME] [p:PHONE] [e:EMAIL] [a:ADDRESS] [s:STATUS] [t:TAG]...`
 
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a valid number according to what is displayed in the list below** (e.g., 1, 2, 3, …​).
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 * When editing the phone number, it needs to be unique so that the edited contact is not treated as a duplicated person.
@@ -171,16 +208,16 @@ Edits an existing person in the address book.
 
 ### Finding customers: `find`
 
-You can find customers by searching for their name, tags, status, phone number, or email. There are two ways to use the `find` command:
+You can find customers by searching for their name, tags, status, phone number, email, or address. There are two ways to use the `find` command:
 
 - **Basic search:** Type one or more names after `find` to look up customers by name. (See examples below.)
-- **Advanced search:** Use prefixes like `n:`, `t:`, `s:`, `p:`, or `e:` to search more specifically by name, tag, status, phone, or email.
+- **Advanced search:** Use prefixes like `n:`, `t:`, `s:`, `p:`, `e:`, or `a:` to search more specifically by name, tag, status, phone, email, or address.
 
-Use basic search when you just want to find by name. Use advanced search if you want to search by tags, status, phone or email, or combine several criteria!
+Use basic search when you just want to find by name. Use advanced search if you want to search by tags, status, phone, email, address, or combine several criteria!
 
 Check the examples below for the correct usage of each search style.
 
-**Format:** `find NAME [MORE_NAMES]` OR `find [n:NAME] [t:TAG]... [s:STATUS] [p:PHONE] [e:EMAIL]`
+**Format:** `find NAME [MORE_NAMES]` OR `find [n:NAME] [t:TAG]... [s:STATUS] [p:PHONE] [e:EMAIL] [a:ADDRESS]`
 
 <p align="center">
   <img src="images/FindCommand.png" alt="Find Command example showing Basic and Advanced Search input fields and results"><br>
@@ -202,6 +239,7 @@ Check the examples below for the correct usage of each search style.
 - `s:STATUS` - Search by contact status (Uncontacted, Contacted, Rejected, Accepted, Unreachable, Busy)
 - `p:PHONE` - Search by phone number
 - `e:EMAIL` - Search by email address
+- `a:ADDRESS` - Search by address
 - Multiple criteria can be combined for more precise searches
 - All searches are case-insensitive
 - For each advanced search command, you can specify at most one of each of the following: name, email, address, status, and phone number. You can, however, include as many tags (`t:TAG`) as you like in a single search!
@@ -242,6 +280,11 @@ Do not mix styles in one command. For example, use `find n:alice t:friend` (adva
 **Search by email:**
 
 - `find e:john@example.com` returns customers with that specific email
+
+**Search by address:**
+
+- `find a:Singapore` returns all customers with "Singapore" in their address
+- `find a:Clementi` returns all customers with "Clementi" in their address
 
 **Combined multi-criteria search:**
 
@@ -289,7 +332,7 @@ Deleting a contact is an irreversible process. Once deleted, the contact informa
 
 * Deletes the person(s) at the specified `INDEX` (and `MORE_INDICES` if provided).
 * The index refers to the index number shown in the displayed person list.
-* The index **must be a positive integer** 1, 2, 3, …​
+* The index **must be a valid number according to what is displayed in the list below** (e.g., 1, 2, 3, …​).
 * Multiple indices can be specified to delete multiple persons at once.
 * Indices can be provided in any order.
 * **All indices must be valid** - if any index is invalid, the command will fail and no persons will be deleted. The error message will show which specific indices are invalid.
@@ -303,7 +346,9 @@ Deleting a contact is an irreversible process. Once deleted, the contact informa
 * `delete 2 99` (when only 2 persons exist) will fail with error message "Invalid index(es) detected: 99" and no deletions will occur.
 * `delete 1 1 3` will fail with error message "Duplicate indices were detected! Please ensure all indices are unique." and no deletions will occur.
 
-![Delete Example](images/deleteSample.png)
+![Delete Example](images/deleteSample2.png)
+Example of where 3 contacts are deleted with the command 
+`delete 1 2 3`
 
 ### Managing email templates :
 
@@ -323,8 +368,11 @@ Opens the template editor for a specific contact status.
 * `STATUS` must be one of: `Contacted`, `Uncontacted`, `Rejected`, `Accepted`, `Unreachable`, or `Busy`.
 * Status is case-insensitive (e.g. `contacted`, `CONTACTED`, `Contacted` all work).
 * The template editor allows you to view and edit the email template.
-* Changes are not saved automatically - use `template save` to save your changes.
 * If no custom template exists for the status, a default template will be displayed (e.g., "This is the default template for status Contacted").
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Warning:**
+Changes are not saved automatically - use `template save` to save your changes.
+</div>
 
 **Examples:**
 * `template s:Contacted` opens the template editor for the "Contacted" status.
@@ -406,12 +454,16 @@ Import replaces your entire address book when data is valid. Make sure to export
 
 ### Export contacts: `export`
 
-Exports all contacts from the address book to your clipboard. This allows you to share your contacts with other OnlySales users or create backups of your data.
+Exports all contacts from the address book and copies all information to your clipboard. This allows you to share your contacts with other OnlySales users or create backups of your data.
 
 **Format:** `export`
 
+* Copies all contact information from your address book to your clipboard in JSON format.
+* The exported data includes all contact information including names, phone numbers, email addresses, physical addresses, statuses, and tags.
+* After running this command, you can paste the data anywhere (e.g., into a text file, share with another user, or use with the `import` command).
+
 <div markdown="span" class="alert alert-info">:information_source: **Note:**
-The exported data includes all contact information including names, phone numbers, email addresses, physical addresses, statuses, and tags.
+The export command copies all information to your clipboard automatically. You can then paste it wherever you need it.
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
@@ -460,10 +512,31 @@ Furthermore, certain edits can cause the OnlySales to behave in unexpected ways 
 **A**: OnlySales only stores data locally on your laptop, no data is sent to external servers. However, the data file is not encrypted, so do ensure that your device is password protected.
 
 **Q**: How do I handle duplicate contacts?<br/>
-**A**: It would be unlikely that there would be a duplicate as each phone number would be owned by a person. You could resolve this by deleting the unwanted entries, or include or exclude the country code for local contacts.
+**A**: It would be unlikely that there would be a duplicate as each phone number would be owned by a different person. You could resolve this by deleting the unwanted entries, or include or exclude the country code for local contacts.
 
 **Q**: The app is not functioning as expected.<br/>
 **A**: Do check the known issues and FAQ. If you have any issues, please file a bug report at: [Customer Feedback Form](https://forms.gle/UBbeXtpVAmTjDf499)
+
+**Q**: Can I search for contacts by address?<br/>
+**A**: Yes! You can use the advanced search feature with the `a:` prefix. For example, `find a:Singapore` will find all contacts with "Singapore" in their address.
+
+**Q**: What happens if I accidentally delete a contact?<br/>
+**A**: Unfortunately, deletion is permanent and cannot be undone. However, you can use the `export` command regularly to create backups of your address book, which you can then import if needed.
+
+**Q**: How do I edit multiple contacts at once?<br/>
+**A**: OnlySales currently supports editing one contact at a time using the `edit` command. To modify multiple contacts, you'll need to edit them individually. However, you can use the `find` command to filter contacts and then edit them one by one.
+
+**Q**: Can I use OnlySales without an internet connection?<br/>
+**A**: Yes! OnlySales is a desktop application that works completely offline. All your data is stored locally on your computer. 
+
+**Q**: What file format does OnlySales use for storing data?<br/>
+**A**: OnlySales stores all contact data in JSON format in the `data/addressbook.json` file. This makes it easy to backup, transfer, or even manually edit if you're comfortable with JSON.
+
+**Q**: How many contacts can I store in OnlySales?<br/>
+**A**: There's no hard limit on the number of contacts you can store. However, for optimal performance, we recommend keeping your address book under 10,000 contacts.
+
+**Q**: Can I customize the email templates?<br/>
+**A**: Absolutely! Use the `template s:STATUS` command to open and edit templates for any status. Don't forget to use `template save` after making changes!
 
 ---
 
@@ -471,6 +544,37 @@ Furthermore, certain edits can cause the OnlySales to behave in unexpected ways 
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running. Alternatively, you can use the `import` and `export` commands.
 2. **If you minimise the Help Window or Import Preview Window**, attempting to open them again (using `help` command, `F1`, or `F7`) will not create a new window. The remedy is to manually restore the minimised window.
+
+---
+
+## Glossary
+
+This glossary defines key terms used throughout this user guide to help you understand OnlySales better.
+
+**Address Book**: The collection of all your contacts stored in OnlySales. This is saved as a JSON file (`addressbook.json`) in the `data` folder.
+
+**CLI (Command Line Interface)**: A text-based way to interact with OnlySales by typing commands instead of clicking buttons with a mouse.
+
+**Contact**: A person's information stored in OnlySales, including their name, phone number, email, address, status, and tags.
+
+**Export**: The process of copying all your contact data to your clipboard in JSON format, which can then be pasted elsewhere or imported into another OnlySales installation.
+
+**Import**: The process of loading contact data from your clipboard (in JSON format) into OnlySales, replacing your current address book.
+
+**Index**: A number that identifies the position of a contact in the displayed list. For example, if you see a list of contacts, the first one has index 1, the second has index 2, and so on.
+
+**JSON (JavaScript Object Notation)**: A text-based data format used by OnlySales to store contact information. It's human-readable and can be edited manually if needed.
+
+**Prefix**: A short code followed by a colon (like `n:`, `p:`, `e:`) used in commands to specify what type of information you're providing. For example, `n:` means name, `p:` means phone number.
+This list is not exhaustive, just some examples of prefixes.
+
+**Status**: A label that indicates the current state of a contact in your sales pipeline. OnlySales supports six statuses: Contacted, Uncontacted, Busy, Rejected, Accepted, and Unreachable.
+
+**Tag**: A keyword or label you can assign to contacts for easier categorization and searching. A contact can have multiple tags.
+
+**Template**: A pre-written email message associated with a specific contact status. You can customize templates and copy them to use in your email communications.
+
+**OR search**: Any condition where at least one of the given conditions are true.
 
 ---
 

@@ -39,11 +39,11 @@ ParserClasses ..> TemplateCommand : <<create>>
 ParserClasses ..> ImportCommand : <<create>>
 ParserClasses ..> ExportCommand : <<create>>
 
-XYZCommand -up-|> Command
-SetStatusCommand -up-|> Command
-TemplateCommand -up-|> Command
-ImportCommand -up-|> Command
-ExportCommand -up-|> Command
+XYZCommand -down-|> Command
+SetStatusCommand -down-|> Command
+TemplateCommand -down-|> Command
+ImportCommand -down-|> Command
+ExportCommand -down-|> Command
 LogicManager .left.> Command : <<call>>
 
 LogicManager --> Model

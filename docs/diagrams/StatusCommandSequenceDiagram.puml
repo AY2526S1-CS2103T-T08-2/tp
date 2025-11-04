@@ -46,10 +46,6 @@ ssc -> status : fromStringIgnoreCase("Contacted")
 activate status
 status --> ssc : newStatus
 deactivate status
-ssc -> person : new Person with newStatus
-activate person
-person --> ssc : updatedPerson
-deactivate person
 ssc -> model : setPerson(personToSetStatus, updatedPerson)
 activate model
 model --> ssc : void

@@ -8,7 +8,7 @@ skinparam ClassBackgroundColor #FFFFAA
 title After 'copy s:CONTACTED' - Template Copied to Clipboard
 
 package "Model" <<Rectangle>> {
-    class TemplateViewState <<null>> #AAAAAA
+    class TemplateViewState #AAAAAA
 }
 
 package "Logic" <<Rectangle>> {
@@ -18,7 +18,7 @@ package "Logic" <<Rectangle>> {
 }
 
 package "Storage" <<Rectangle>> {
-    class "data/" <<folder>> {
+    class "data/" {
         file "contactedTemplate.txt" #90EE90
         file "rejectedTemplate.txt"
         file "acceptedTemplate.txt"

@@ -8,11 +8,11 @@ skinparam ClassBackgroundColor #FFFFAA
 title Initial State - No Template Being Viewed
 
 package "Model" <<Rectangle>> {
-    class TemplateViewState <<null>> #AAAAAA
+    class TemplateViewState #AAAAAA
 }
 
 package "Storage" <<Rectangle>> {
-    class "data/" <<folder>> {
+    class "data/" {
         file "contactedTemplate.txt"
         file "rejectedTemplate.txt"
         file "acceptedTemplate.txt"

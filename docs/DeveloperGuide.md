@@ -8,35 +8,6 @@ title: Developer Guide
 
 ---
 
-## **Acknowledgements**
-
-#### Zhao Ruixuan
-* Used cursor to write some test cases for status and export (model: auto)
-* Used cursor to check if status and export implementation were correct (model: auto)
-* Used ChatGPT to check for spelling and formatting issues in the UG and DG (model: GPT-5)
-
-#### Nihaal Manaf
-* Used Cursor to help write test cases for the find command! (model: Auto)
-* Used Cursor to help check for poor code quality in play like DRY (model: Auto)
-* Used Cursor for error checking, debugging in general(model: Auto)
-* Used Cursor to help understand the codebase architecture pattern and understand how to implement status view and tag view (model: Sonnet 4.5)
-* Used Cursor to build the tag view plane and status view plane in sidebar panel! (model: Auto)
-
-#### Sean Hardjanto
-* Used Copilot to write test cases for delete and template (Claude Sonnet 4.5)
-* Used Copilot to check and write JavaDoc comments for delete and template methods (Claude Sonnet 4.5)
-* Used Copilot to scan code for areas of code to increase code quality (Claude Sonnet 4.5)
-* Used Copilot to assist with debugging of code (Claude Sonnet 4.5)
-
-#### Poh Anson
-
-* Used Copilot to help with the writing and refinement of the testcases and JavaDoc (Claude Sonnet 4.5)
-* Used Copilot to help to check for coding standards violation, poor code quality and suggestions for improvements of the code base, as well as documentations. (Claude Sonnet 4.5)
-* Used Copilot to help debug the code when I am stuck (Claude 4.5)
-
-
----
-
 ## **Setting up, getting started**
 
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
@@ -131,7 +102,7 @@ The sequence diagram below illustrates the interactions within the `Logic` compo
 
 ![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
 
-How the `Logic` component works:
+**How the `Logic` component works:**
 
 1. When `Logic` is called upon to execute a command, it is passed to an `AddressBookParser` object which in turn creates a parser that matches the command (e.g. `DeleteCommandParser`) and uses it to parse the command.
 1. This results in a `Command` object (more precisely, an object of one of its subclasses e.g. `DeleteCommand`) which is executed by the `LogicManager`.
@@ -143,7 +114,7 @@ Here are the other classes in `Logic` (omitted from the class diagram above) tha
 
 <img src="images/ParserClasses.png" width="600"/>
 
-How the parsing works:
+**How the parsing works:**
 * When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g. `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g. `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
 * All `XYZCommandParser` classes (e.g. `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
@@ -659,6 +630,34 @@ The typical flow of operations is:
 
 ---
 
+## **Acknowledgements**
+
+#### Zhao Ruixuan
+* Used cursor to write some test cases for status and export (model: auto)
+* Used cursor to check if status and export implementation were correct (model: auto)
+* Used ChatGPT to check for spelling and formatting issues in the UG and DG (model: GPT-5)
+
+#### Nihaal Manaf
+* Used Cursor to help write test cases for the find command! (model: Auto)
+* Used Cursor to help check for poor code quality in play like DRY (model: Auto)
+* Used Cursor for error checking, debugging in general(model: Auto)
+* Used Cursor to help understand the codebase architecture pattern and understand how to implement status view and tag view (model: Sonnet 4.5)
+* Used Cursor to build the tag view plane and status view plane in sidebar panel! (model: Auto)
+
+#### Sean Hardjanto
+* Used Copilot to write test cases for delete and template (Claude Sonnet 4.5)
+* Used Copilot to check and write JavaDoc comments for delete and template methods (Claude Sonnet 4.5)
+* Used Copilot to scan code for areas of code to increase code quality (Claude Sonnet 4.5)
+* Used Copilot to assist with debugging of code (Claude Sonnet 4.5)
+
+#### Poh Anson
+
+* Used Copilot to help with the writing and refinement of the testcases and JavaDoc (Claude Sonnet 4.5)
+* Used Copilot to help to check for coding standards violation, poor code quality and suggestions for improvements of the code base, as well as documentations. (Claude Sonnet 4.5)
+* Used Copilot to help debug the code when I am stuck (Claude 4.5)
+
+---
+
 ## **Appendix: Requirements**
 
 ### Product scope
@@ -1151,7 +1150,7 @@ Priorities: Essential (must have) - `* * *`, Typical (nice to have) - `* *`, Nov
 * **ObservableList**: A JavaFX collection that notifies listeners about changes (additions, removals, updates). Used to keep the UI view synchronized with app data in real time.
 * **ObjectProperty**: A JavaFX property type that holds and notifies changes to a single object, supporting binding and listeners for UI updates.
 * **Observer Pattern**: Design pattern used to keep UI synchronized with Model. JavaFX `ObservableList` and `ObjectProperty` notify listeners (UI components) when data changes.
-* **Parameter**: Command argument specified with a prefix (e.g., `n:NAME`, `p:PHONE`). Parsed by `ArgumentTokenizer` which splits input into `ArgumentMultimap`.
+* **Parameter**: Command argument specified with a prefix (e.g., `n:Mary Jane`, `p:91234567`). Parsed by `ArgumentTokenizer` which splits input into `ArgumentMultimap`.
 * **Parser**: Class responsible for converting user input strings into `Command` objects. All parsers implement the `Parser` interface.
 * **PDPA (Personal Data Protection Act)**: Singapore's data protection regulation. Application supports compliance through bulk deletion and data export features.
 * **PersonListPanel**: The panel or list view in the UI that displays all persons/contacts matching the current list or filter.

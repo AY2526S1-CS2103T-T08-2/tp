@@ -22,7 +22,7 @@ package "UI" <<Rectangle>> {
 }
 
 package "Storage" <<Rectangle>> {
-    class "data/" <<folder>> {
+    class "data/" {
         file "contactedTemplate.txt" #90EE90
         file "rejectedTemplate.txt"
         file "acceptedTemplate.txt"

@@ -649,6 +649,7 @@ The typical flow of operations is:
 * Used Copilot to check and write JavaDoc comments for delete and template methods (Claude Sonnet 4.5)
 * Used Copilot to scan code for areas of code to increase code quality (Claude Sonnet 4.5)
 * Used Copilot to assist with debugging of code (Claude Sonnet 4.5)
+* Used Copilot to check through UG and DG (Claude Sonnet 4.5)
 
 #### Poh Anson
 

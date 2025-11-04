@@ -15,8 +15,7 @@ end box
 
 box Model MODEL_COLOR_T1
 participant ":Model" as model MODEL_COLOR
-participant "Person" as person MODEL_COLOR
-participant "Status" as status MODEL_COLOR
+participant ":Person" as person MODEL_COLOR
 end box
 
 user -> logic : execute("status 1 Contacted")
@@ -25,10 +24,12 @@ logic -> abp : parseCommand("status 1 Contacted")
 activate abp
 abp -> sscp : parse("1 Contacted")
 activate sscp
-sscp -> ssc : SetStatusCommand(index, "Contacted")
+create ssc
+sscp -> ssc : SetStatusCommand(index, status)
 activate ssc
-ssc --> sscp : SetStatusCommand
+ssc --> sscp
 deactivate ssc
+sscp --> abp : SetStatusCommand
 deactivate sscp
 abp --> logic : SetStatusCommand
 deactivate abp
@@ -38,24 +39,25 @@ ssc -> model : getFilteredPersonList()
 activate model
 model --> ssc : personList
 deactivate model
-ssc -> person : get(index)
+ssc -> model : getPerson(index)
+activate model
+model --> ssc : personToEdit
+deactivate model
+create person
+ssc -> person : Person(updatedPerson)
 activate person
-person --> ssc : personToSetStatus
+person --> ssc
 deactivate person
-ssc -> status : fromStringIgnoreCase("Contacted")
-activate status
-status --> ssc : newStatus
-deactivate status
-ssc -> person : new Person with newStatus
-activate person
-person --> ssc : updatedPerson
-deactivate person
-ssc -> model : setPerson(personToSetStatus, updatedPerson)
+ssc -> model : setPerson(personToEdit, editedPerson)
+activate model
+model --> ssc : void
+deactivate model
+ssc -> model : updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS)
 activate model
 model --> ssc : void
 deactivate model
 ssc --> logic : CommandResult
 deactivate ssc
-logic --> user : "Status set for Person: ..."
+logic --> user : "Updated status of person to: Contacted"
 deactivate logic
 @enduml

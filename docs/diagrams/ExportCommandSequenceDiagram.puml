@@ -10,7 +10,6 @@ box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as logic LOGIC_COLOR
 participant ":AddressBookParser" as abp LOGIC_COLOR
 participant ":ExportCommand" as ec LOGIC_COLOR
-participant ":ClipboardProvider" as clipboard LOGIC_COLOR
 end box
 
 box Model MODEL_COLOR_T1
@@ -19,6 +18,7 @@ end box
 
 box Storage STORAGE_COLOR_T1
 participant ":FileSystemProvider" as fsp STORAGE_COLOR
+participant ":ClipboardProvider" as clipboard STORAGE_COLOR
 participant ":JsonAddressBookUtil" as jabu STORAGE_COLOR
 end box
 
@@ -26,10 +26,12 @@ user -> logic : execute("export")
 activate logic
 logic -> abp : parseCommand("export")
 activate abp
-abp -> ec : ExportCommand()
+create ec
+abp -> ec : ExportCommand(clipboard, fsp)
 activate ec
-ec --> abp : ExportCommand
+ec --> abp
 deactivate ec
+abp --> logic : ExportCommand
 deactivate abp
 logic -> ec : execute(model)
 activate ec
